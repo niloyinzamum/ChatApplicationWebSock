@@ -1,9 +1,13 @@
-const path= require('path')
-const http = require('http')
-const express = require('express');
-const socketio = require('socket.io');
-const { disconnect } = require('process');
-const formatMessage = require('./utils/messages')
+const path= require('path') //utility for working with files and paths
+const http = require('http') //called externally to interact with http functionality
+const express = require('express'); //web application framework for node js
+
+const socketio = require('socket.io');//ws library
+
+// const { disconnect } = require('process');
+
+const formatMessage = require('./utils/messages') 
+
 const {userJoin, getCurrentUser, userLeave, getRoomUsers} = require('./utils/users')
 
 const app = express();
@@ -17,7 +21,7 @@ const botName = 'AdminBot'
 
 //Run when client connects
 io.on('connection', socket =>{
-    //join room 
+    //join room d
     socket.on('joinRoom',({username, room})=>{
     const user = userJoin(socket.id, username, room)
     
